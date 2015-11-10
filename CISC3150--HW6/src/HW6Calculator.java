@@ -2,38 +2,17 @@
 //11/10/15
 //CISC3150
 
-//import java.io.*;
-
 public class HW6Calculator{
-	
 	
 	public static void main(String[] args){
 		
-		int n1, n2, n3;
-		String s1, s2, s3;
-		
-//		n1=2;
-//		s1="+";
-//		n2=3;
-		
-		//n3=args[0].length();
-		//n1=Integer.parseInt(args[0]);
-		//s1=args[1];
-		//n2=Integer.parseInt(args[2]);
-		
-//		s2=args[0];
-//		
-//		System.out.println(s2.charAt(0));
-//		
-//		if(args[0].charAt(0)<'0' || args[0].charAt(0)>'9'){
-//			System.out.println("111");
-//		}
+		int n1, n2;
+		String s1;
 		
 		try{
 			if(args.length!=3){
 				throw new NotEnoughNumbersException();
 			}
-			
 		}
 		catch(NotEnoughNumbersException ex){
 			System.out.println("please enter the second number.");
@@ -43,16 +22,16 @@ public class HW6Calculator{
 		
 		try{
 			
-			if(args[0].length()!=1||
-					args[0].charAt(0)<'0' || 
-					args[0].charAt(0)>'9'){
-				throw new NotANumberException();
+			for(int i=0; i<args[0].length(); i++){
+				if(args[0].charAt(i)<'0' || args[0].charAt(i)>'9'){
+					throw new NotANumberException();
+				}
 			}
 			
-			if(args[2].length()!=1||
-					args[2].charAt(0)<'0' || 
-					args[2].charAt(0)>'9'){
-				throw new NotANumberException();
+			for(int i=0; i<args[2].length(); i++){
+				if(args[2].charAt(i)<'0' || args[2].charAt(i)>'9'){
+					throw new NotANumberException();
+				}
 			}
 			
 		}
@@ -62,8 +41,11 @@ public class HW6Calculator{
 		}
 		
 		try{
-			if(args[1].length()==1||
-					args[1].charAt(0)=='+' ||
+			if(args[1].length()>1){
+				throw new IllegalOperationException();
+			}
+			
+			if(args[1].charAt(0)=='+' ||
 					args[1].charAt(0)=='-' ||
 					args[1].charAt(0)=='/' ||
 					args[1].charAt(0)=='*' ||
@@ -79,27 +61,23 @@ public class HW6Calculator{
 			System.exit(1);
 		}
 		
-		
-		
-		
-		
 		try{
 			n1=Integer.parseInt(args[0]);
 			s1=args[1];
 			n2=Integer.parseInt(args[2]);
-			if(s1.equalsIgnoreCase("+")){
+			if(s1.compareTo("+")==0){
 				System.out.println(n1+n2);
 			}
-			else if(s1.equalsIgnoreCase("-")){
+			else if(s1.compareTo("-")==0){
 				System.out.println(n1-n2);
 			}
-			else if(s1.equalsIgnoreCase("/")){
+			else if(s1.compareTo("/")==0){
 				System.out.println(n1/n2);
 			}
-			else if(s1.equalsIgnoreCase("*")){
+			else if(s1.compareTo("*")==0){
 				System.out.println(n1*n2);
 			}
-			else if(s1.equalsIgnoreCase("%")){
+			else if(s1.compareTo("%")==0){
 				System.out.println(n1%n2);
 			}
 		}
@@ -108,15 +86,9 @@ public class HW6Calculator{
 			System.exit(1);
 		}
 
-		
-		
 	}
-	
-	
-	
+
 }
-
-
 
 class NotANumberException extends IllegalArgumentException{
 
