@@ -10,7 +10,7 @@
 // 
 // Therefore, I basically check the following errors:
 // If the length of args is not 3, throw a NotANumberException.
-// If args[0] and args[2] is not a number, throw a NOTANumberException.
+// If args[0] and args[2] are not numbers, throw a NOTANumberException.
 // If args[1] is not an operation, throw a IllegalOperationException.
 // now I have a correct input args.
 // Calculate the solution.
