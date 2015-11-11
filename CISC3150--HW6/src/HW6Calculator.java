@@ -112,6 +112,7 @@ public class HW6Calculator{
 
 }
 
+//custom exceptions
 class NotANumberException extends IllegalArgumentException{
 
 }

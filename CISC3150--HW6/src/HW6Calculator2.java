@@ -192,6 +192,7 @@ public class HW6Calculator2{
 
 }
 
+//custom exceptions
 class NotANumberException2 extends IllegalArgumentException{
 
 }
@@ -204,7 +205,7 @@ class NotEnoughNumbersException2 extends IllegalArgumentException{
 	
 }
 
-//linked list for solving polynomial
+//linked list for holding long expression
 class myList{
 	public String s;
 	public int n;
