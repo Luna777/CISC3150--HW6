@@ -1,6 +1,6 @@
+//CISC3150
 //Xin Guan
 //11/10/15
-//CISC3150
 //
 //Short Description:
 // this calculator is the simple one.
