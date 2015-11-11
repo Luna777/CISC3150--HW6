@@ -13,3 +13,5 @@ GuantekiMacBook-Air:src guanxin$ java HW6Calculator 1234567890
 please enter 2 numbers with 1 operation, ex: 7 + 7.
 GuantekiMacBook-Air:src guanxin$ java HW6Calculator 5 + 
 please enter 2 numbers with 1 operation, ex: 7 + 7.
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator 5 +++ 6
+the operation is not correct.
