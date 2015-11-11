@@ -1,9 +1,26 @@
 //CISC3150
 //Xin Guan
 //11/10/15
+//
+//Short Description:
+// this calculator is for long expression calculating, ex:2 + 3 - 7 * 9 / 3 + 11.
+// it takes odd length of args; even args are numbers; odd args are operations.
+//
+// Therefore, I will check the following errors:
+// If the length of args is not odd, throw a NotEnoughNumbersException2.
+// If even args are not numbers, throw a NOTANumberException.
+// If odd args are not operations, throw a IllegalOperationException.
+// now I have a correct input expression.
+//
+// Calculate the solution.
+// I used linked list for holding the long expression.
+// check from the beginning of the list, 
+// if found *,/,%, calculate the answer, then shrink the list in current position by one.
+// check from the beginning again,
+// if found +, -, calculate the answer, then shrink the list in current position by one.
+// If any number divide by 0, throw an ArithmeticException.
 
 
-import java.util.*;
 
 public class HW6Calculator2{
 	
@@ -11,22 +28,21 @@ public class HW6Calculator2{
 
 		myList list;
 		myList current;
-		myList temp;
 
 		//check the length of the input args
-		//if the length is even, throw a exception.
+		//if the length is even, throw an exception.
 		try{
 			if((args.length%2)!=1){
 				throw new NotEnoughNumbersException2();
 			}
 		}
 		catch(NotEnoughNumbersException2 ex){
-			System.out.println("please enter the second number.");
+			System.out.println("please enter enough numbers or operations.");
 			System.exit(1);
 		}
 		
 		//check the even args are all numbers or not
-		//if not, throw a exception.
+		//if not, throw an exception.
 		try{	
 			for(int i=0; i<args.length; i=i+2){
 				for(int j=0; j<args[i].length(); j++){
@@ -42,7 +58,7 @@ public class HW6Calculator2{
 		}
 		
 		//check the odd args are operation or not
-		//if not, throw a exception.
+		//if not, throw an exception.
 		try{
 			for(int i=1; i<args.length-1; i=i+2){
 				if(args[i].length()>1){
@@ -67,8 +83,10 @@ public class HW6Calculator2{
 		
 		//now here are all the numbers in even args with operations in odd args
 		//calculate them.
+		//if there's a number divide by 0, throw an ArithmeticException.
 		try{
-		
+			
+			//store all the args in linked list.
 			list = new myList(Integer.parseInt(args[0]), args[1]);
 			current=list;
 			int i;
@@ -82,16 +100,16 @@ public class HW6Calculator2{
 //			System.out.println("1===============");
 //			list.printList();
 //			System.out.println("1===============");
-					
-			current=list;
-					
-					
+				
 			//for * / %
+			//check from the beginning of the list
+			//calculate all the *, /, % partially 
+			//then shrink the list in current position by one.
+			current=list;		
 			while(current.next!=null){   
 				if(current.s.compareTo("*")==0){
 					current.n=current.n*current.next.n;
 					current.s=current.next.s;
-					System.out.println(current.n);
 					if(current.next.s.compareTo("$")!=0){
 						current.next=current.next.next;
 					}
@@ -128,7 +146,9 @@ public class HW6Calculator2{
 						
 			}
 					
-			//for + and -
+			//for + and -, and now the list will only remain + and - operations.
+			//check from the beginning of the list
+			//calculate the answer, then shrink the list in current position by one.
 			current=list;
 			while(current.next!=null){
 				if(current.s.compareTo("+")==0){
@@ -190,6 +210,7 @@ class myList{
 		next=null;
 	}
 	
+	//print out the list
 	public void printList(){
 		myList temp=this;
 		while(temp!=null){

@@ -1,0 +1,17 @@
+GuantekiMacBook-Air:src guanxin$ javac HW6Calculator2.java
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator2 2 + 3 - 7 '*' 9 / 3 + 11
+-5
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator2 2 + 3 -
+please enter enough numbers or operations.
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator2 2 + b - a
+not a number, please re-enter your number.
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator2 2 + 3 - 7 a 9 / 3
+the operation is not correct.
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator2 5 % 2 + 1
+2
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator2 100 / 5 / 2 / 5 + 3
+5
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator2 7777 + 999 + 10000
+18776
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator2 5 +++ 777 '*' 3
+the operation is not correct.

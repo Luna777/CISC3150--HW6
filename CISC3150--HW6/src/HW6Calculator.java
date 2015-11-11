@@ -9,10 +9,10 @@
 // The answer will be an integer too.
 // 
 // Therefore, I basically check the following errors:
-// If the length of args is not 3, throw a NotANumberException.
+// If the length of args is not 3, throw a NotEnoughNumbersException.
 // If args[0] and args[2] are not numbers, throw a NOTANumberException.
 // If args[1] is not an operation, throw a IllegalOperationException.
-// now I have a correct input args.
+// now I have a correct input.
 // Calculate the solution.
 // If any number divide by 0, throw an ArithmeticException.
 
@@ -25,7 +25,7 @@ public class HW6Calculator{
 		String s1; //one operation
 		
 		//check the length of args
-		//if it's not 3, throw a NotANumberException.
+		//if it's not 3, throw a NotEnoughNumbersException.
 		try{
 			if(args.length!=3){
 				throw new NotEnoughNumbersException();
