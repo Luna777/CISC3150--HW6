@@ -1,0 +1,15 @@
+GuantekiMacBook-Air:src guanxin$ javac HW6Calculator.java
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator 2 + 3
+5
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator y + 7
+not a number, please re-enter your number.
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator 7 b 7
+the operation is not correct.
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator 5 '*' 5
+25
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator 5 / 0
+cannot divide by zero.
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator 1234567890
+please enter 2 numbers with 1 operation, ex: 7 + 7.
+GuantekiMacBook-Air:src guanxin$ java HW6Calculator 5 + 
+please enter 2 numbers with 1 operation, ex: 7 + 7.

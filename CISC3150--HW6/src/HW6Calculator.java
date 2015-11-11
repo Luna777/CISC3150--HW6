@@ -1,25 +1,43 @@
 //Xin Guan
 //11/10/15
 //CISC3150
+//
+//Short Description:
+// this calculator is the simple one.
+// It takes only two integer numbers and one operator.
+// So, there are totally 3 args from command line will be accepted.
+// The answer will be an integer too.
+// 
+// Therefore, I basically check the following errors:
+// If the length of args is not 3, throw a NotANumberException.
+// If args[0] and args[2] is not a number, throw a NOTANumberException.
+// If args[1] is not an operation, throw a IllegalOperationException.
+// now I have a correct input args.
+// Calculate the solution.
+// If any number divide by 0, throw an ArithmeticException.
+
 
 public class HW6Calculator{
 	
 	public static void main(String[] args){
 		
-		int n1, n2;
-		String s1;
+		int n1, n2; //two numbers
+		String s1; //one operation
 		
+		//check the length of args
+		//if it's not 3, throw a NotANumberException.
 		try{
 			if(args.length!=3){
 				throw new NotEnoughNumbersException();
 			}
 		}
 		catch(NotEnoughNumbersException ex){
-			System.out.println("please enter the second number.");
+			System.out.println("please enter 2 numbers with 1 operation, ex: 7 + 7.");
 			System.exit(1);
 		}
 		
-		
+		//check args[0] and args[2] 
+		//if it's not a number, throw a NOTANumberException.
 		try{
 			
 			for(int i=0; i<args[0].length(); i++){
@@ -40,6 +58,8 @@ public class HW6Calculator{
 			System.exit(1);
 		}
 		
+		//check args[1] 
+		//if it's not an operation, throw a IllegalOperationException.
 		try{
 			if(args[1].length()>1){
 				throw new IllegalOperationException();
@@ -61,6 +81,8 @@ public class HW6Calculator{
 			System.exit(1);
 		}
 		
+		//now calculate the solution
+		//if there's a number divide by 0, throw an ArithmeticException.
 		try{
 			n1=Integer.parseInt(args[0]);
 			s1=args[1];
@@ -94,11 +116,11 @@ class NotANumberException extends IllegalArgumentException{
 
 }
 
-class IllegalOperationException extends Exception{
+class IllegalOperationException extends IllegalArgumentException{
 	
 }
 
-class NotEnoughNumbersException extends Exception{
+class NotEnoughNumbersException extends IllegalArgumentException{
 	
 }
 
